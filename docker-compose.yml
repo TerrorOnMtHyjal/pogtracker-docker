@@ -8,6 +8,7 @@ services:
             - "3000:3000"
         volumes: 
             - ./src/client:/usr/src/app
+            - /usr/src/app/node_modules/
         networks: 
             - frontend-pogtracker-network
     server:

@@ -1,14 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
+import styles from './App.module.scss';
 
 function App() {
-  // useEffect(() => {
-  //   fetch('/api')
-  //   .then(res => res.text())
-  //   .then(text => console.log(text))
-  // }, []);
-
   return (
-    <div className="App">
+    <div className={styles.App}>
       <p>HMR IS RUNNIN</p>
     </div>
   );
