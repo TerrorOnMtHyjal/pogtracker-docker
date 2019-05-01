@@ -4,105 +4,52 @@ services:
     client:
         build: ./src/client
         container_name: client-pogtracker
-        ports: 
+        ports:
             - "3000:3000"
-        volumes: 
+        volumes:
             - ./src/client:/usr/src/app
             - /usr/src/app/node_modules/
-        networks: 
+        networks:
             - frontend-pogtracker-network
     server:
         build: ./src/server
         container_name: server-pogtracker
-        volumes: 
+        volumes:
             - ./src/server:/usr/src/app
-        networks: 
+        networks:
             - frontend-pogtracker-network
-            - backend-pogtracker-network 
-    mongodb:
-        image: mongo
-        container_name: database-pogtracker
-        volumes: 
-            - ./src/data/db:/data/db
-        networks: 
-            - backend-pogtracker-network
 networks:
     frontend-pogtracker-network:
         driver: bridge
-    backend-pogtracker-network:
-        driver: bridge
 
-
-
-
-
-
-
-
-# services:
-#   client:
-#     build:
-#       context: ./client
-#     image: client-pogtracker
-#     ports:
-#       - "3000:3000"
-#     volumes:
-#       - ./client:/client
-#     networks:
-#       - network-pogtracker
-#   server:
-#     build:
-#       context: ./server
-#     image: server-pogtracker
-#     networks:
-#       - network-pogtracker
-#   mongodb:
-#     image: mongo
-#     container_name: mongodb-pogtracker
-#     volumes:
-#       - ./data-node:/data/db
-#     ports:
-#       - 27017:27017
-#     command: mongod --noauth --smallfiles
-#     networks:
-#       - network-pogtracker
-# networks:
-#   network-pogtacker:
-#     driver: bridge
-
-
-# services:
-#     client:
-#         build: ./client
-#         ports:
-#             - "3000:3000"
-#         volumes:
-#             - ./client:/client
-#             - /client/node_modules
-#         links:
-#             - api
-#         networks:
-#             - pogtracker-network
-#     server:
-#         build: ./server
-#         expose: "80"
-#         volumes:
-#             - ./server:/server
-#             - /server/node_modules
-#         depends_on:
-#             - mongodb
-#         networks:
-#             - pogtracker-network
-#     mongodb:
-#         image: mongo
-#         container_name: mongodb
-#         volumes:
-#             - ./data-node:/data/db
-#         ports:
-#             - 27017:27017
-#         command: mongod --noauth --smallfiles
-#         networks:
-#             - pogtracker-network
-# networks:
-#     pogtracker-network:
-#         driver: bridge
+#services:
+#    client:
+#        build: ./src/client
+#        container_name: client-pogtracker
+#        ports:
+#            - "3000:3000"
+#        volumes:
+#            - ./src/client:/usr/src/app
+#            - /usr/src/app/node_modules/
+#        networks:
+#            - frontend-pogtracker-network
+#    server:
+#        build: ./src/server
+#        container_name: server-pogtracker
+#        volumes:
+#            - ./src/server:/usr/src/app
+#        networks:
+#            - frontend-pogtracker-network
+#            - backend-pogtracker-network
+#    mongodb:
+#        image: mongo
+#        container_name: database-pogtracker
+#        volumes:
+#            - ./src/data/db:/data/db
+#        networks:
+#            - backend-pogtracker-network
+#networks:
+#    frontend-pogtracker-network:
+#        driver: bridge
+#    backend-pogtracker-network:
+#        driver: bridge
