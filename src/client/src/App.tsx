@@ -1,10 +1,11 @@
 import React from "react";
 import styles from './App.module.scss';
+import ReplayIDFormContainer from "./components/ReplayIDFormContainer";
 
 function App() {
   return (
     <div className={styles.App}>
-      <p>HMR IS RUNNIN</p>
+      <ReplayIDFormContainer />
     </div>
   );
 }

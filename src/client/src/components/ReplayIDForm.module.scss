@@ -1,0 +1,23 @@
+.ReplayIDForm {
+  display: flex;
+  flex-flow: column;
+
+  input[type="text"] {
+    width: 10em;
+    font-size: 2em;
+    padding: 0.25em;
+    border: none;
+    border-bottom: 1px solid black;
+  }
+
+  input[type="submit"] {
+    width: 50%;
+    margin-top: 1em;
+    background-color: darkblue;
+    color: white;
+    font-weight: 600;
+    font-size: 1.25em;
+    padding: 0.5em;
+    border: none;
+  }
+}

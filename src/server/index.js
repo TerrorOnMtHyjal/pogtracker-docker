@@ -2,9 +2,9 @@ import express from 'express';
 
 const app = express();
 
-app.get('/api', (req, res) => {
-  console.log('I WAS PINGED I WAS PIIIIIINGED')
-  return res.send('HEY HEY HEY');
+app.get('/api/process', (req, res) => {
+  console.log('requested replay is', req.query.replayID);
+  return res.send('REPLAY ID ACCEPTED');
 });
 
 app.listen(8080, () =>

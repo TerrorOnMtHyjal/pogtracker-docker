@@ -1,4 +1,7 @@
 .App {
-  background-color: red;
-  border: 10px solid blue;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
