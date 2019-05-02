@@ -1,24 +1,21 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-.env
-.idea
-.vscode
+# CLIENT
 src/client/node_modules
 src/client/build
-src/data/db
+src/client/.idea
+src/client/.vscode
 
+# SERVER
 src/server/node_modules
 src/server/build
+src/server/.env
 
-/coverage
+#DATABASE
+src/data/db
 
 # misc
 .DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
 npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+.idea
+.vscode

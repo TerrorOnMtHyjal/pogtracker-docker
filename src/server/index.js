@@ -1,3 +1,5 @@
+/* global process */
+require('dotenv').config();
 import express from 'express';
 
 const app = express();
@@ -7,6 +9,8 @@ app.get('/api/process', (req, res) => {
   return res.send('REPLAY ID ACCEPTED');
 });
 
-app.listen(8080, () =>
-  console.log('Example app listening on port 8080!'),
+const PORT = process.env.PORT;
+
+app.listen(PORT, () =>
+  console.log(`Server listening on ${PORT}`),
 );
