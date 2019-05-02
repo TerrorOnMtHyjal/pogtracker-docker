@@ -8,25 +8,27 @@ const defaultProps = {
   processForm: () => {}
 };
 
-describe('ReplayIDForm', () => {
+describe('<ReplayIDForm />', () => {
   it('renders', () => {
     shallow(<ReplayIDForm {...defaultProps}/>)
   });
 
-  it('runs setInput on text input field change', () => {
+  it('runs props.setInput on text input field change', () => {
     const setInputMock = jest.fn();
     const mockEvent = { target: { value: 'test input'}};
     const wrapper = shallow(<ReplayIDForm {...defaultProps} setInput={setInputMock}/>);
 
-    const input = wrapper.find("input[type='text']");
-
-    input.simulate('change', {
-      target: {
-        value: 'test input'
-      }
-    });
+    wrapper.find("input[type='text']").simulate('change', mockEvent);
 
     expect(setInputMock).toBeCalledTimes(1);
     expect(setInputMock).toBeCalledWith('test input');
+  });
+
+  it('runs props.processForm on form submission', () => {
+    const processFormMock = jest.fn();
+    const wrapper = shallow(<ReplayIDForm {...defaultProps} processForm={processFormMock}/>);
+
+    wrapper.find('form').simulate('submit');
+    expect(processFormMock).toBeCalledTimes(1);
   });
 });
