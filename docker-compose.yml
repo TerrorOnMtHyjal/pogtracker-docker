@@ -16,6 +16,7 @@ services:
         container_name: server-pogtracker
         volumes:
             - ./src/server:/usr/src/app
+            - /usr/src/app/node_modules/
         networks:
             - frontend-pogtracker-network
 networks:
