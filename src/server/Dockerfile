@@ -1,4 +1,4 @@
-FROM node:10.15.3-alpine
+FROM node:12.4.0-alpine
 EXPOSE 8080
 WORKDIR /usr/src/app
 COPY package*.json ./
