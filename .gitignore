@@ -19,3 +19,4 @@ src/data/db
 npm-debug.log*
 .idea
 .vscode
+.gitconfig
