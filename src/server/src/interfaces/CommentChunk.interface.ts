@@ -3,7 +3,7 @@ interface Commenter {
   _id: string;
   name: string;
   type: string;
-  bio: string;
+  bio: string | null;
   created_at: string;
   updated_at: string;
   logo: string;
@@ -30,7 +30,7 @@ interface UserBadge {
   version: string;
 }
 
-interface Message {
+export interface Message {
   body: string;
   emoticons?: Emoticon[];
   fragments: Fragment[];
