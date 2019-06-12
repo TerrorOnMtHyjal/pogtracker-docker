@@ -3,6 +3,7 @@ import { CommentChunk, Message } from "../interfaces/CommentChunk.interface";
 interface TrackedEmote {
   count: number;
   commenters: string[];
+  emote_offset: number;
 }
 
 interface TrackedEmotes {
@@ -25,11 +26,13 @@ export const isPreviousCommenter = (
 export const addNewEmote = (
   trackedEmotes: TrackedEmotes,
   emoticonID: string,
-  displayName: string
+  displayName: string,
+  content_offset_seconds: number
 ) => {
   trackedEmotes[emoticonID] = {
     count: 1,
-    commenters: [displayName]
+    commenters: [displayName],
+    emote_offset: content_offset_seconds
   };
 
   return;
@@ -45,7 +48,7 @@ export const updateEmote = (emote: TrackedEmote, displayName: string) => {
 const parseCommentChunk = ({ comments }: CommentChunk) => {
   const trackedEmotes: TrackedEmotes = {};
 
-  comments.forEach(({ message, commenter }) => {
+  comments.forEach(({ message, commenter, content_offset_seconds }) => {
     if (!messageHasEmoticons(message)) {
       return;
     }
@@ -61,7 +64,7 @@ const parseCommentChunk = ({ comments }: CommentChunk) => {
         return;
       }
 
-      addNewEmote(trackedEmotes, _id, display_name);
+      addNewEmote(trackedEmotes, _id, display_name, content_offset_seconds);
     });
   });
 
