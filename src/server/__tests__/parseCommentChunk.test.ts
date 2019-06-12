@@ -81,15 +81,18 @@ describe("parseCommentChunk", () => {
       const trackedEmotes = {
         438: {
           count: 2,
-          commenters: ["boebia", "TheAtarax"]
+          commenters: ["boebia", "TheAtarax"],
+          emote_offset: 8449.633
         },
         1157: {
           count: 2,
-          commenters: ["boebia", "TheAtarax"]
+          commenters: ["boebia", "TheAtarax"],
+          emote_offset: 8449.633
         },
         67: {
           count: 2,
-          commenters: ["boebia", "TheAtarax"]
+          commenters: ["boebia", "TheAtarax"],
+          emote_offset: 8449.633
         }
       };
       const emoticonID = "67";
@@ -101,15 +104,18 @@ describe("parseCommentChunk", () => {
       const trackedEmotes = {
         438: {
           count: 2,
-          commenters: ["boebia", "TheAtarax"]
+          commenters: ["boebia", "TheAtarax"],
+          emote_offset: 8449.633
         },
         1157: {
           count: 2,
-          commenters: ["boebia", "TheAtarax"]
+          commenters: ["boebia", "TheAtarax"],
+          emote_offset: 8449.633
         },
         67: {
           count: 2,
-          commenters: ["boebia", "TheAtarax"]
+          commenters: ["boebia", "TheAtarax"],
+          emote_offset: 8449.633
         }
       };
       const emoticonID = "1001";
@@ -135,26 +141,32 @@ describe("parseCommentChunk", () => {
   });
 
   describe("addNewEmote", () => {
-    const trackedEmotes = {
-      438: {
-        count: 2,
-        commenters: ["boebia", "TheAtarax"]
-      }
-    };
-    const emoticonID = "300";
-    const displayName = "dev3535";
+    it("appends emoticonID to trackedEmotes and maps arguments to the new object", () => {
+      const trackedEmotes = {
+        438: {
+          count: 2,
+          commenters: ["boebia", "TheAtarax"],
+          emote_offset: 1367
+        }
+      };
+      const emoticonID = "300";
+      const displayName = "dev3535";
+      const emote_offset = 1200;
 
-    addNewEmote(trackedEmotes, emoticonID, displayName);
+      addNewEmote(trackedEmotes, emoticonID, displayName, emote_offset);
 
-    expect(trackedEmotes).toEqual({
-      438: {
-        count: 2,
-        commenters: ["boebia", "TheAtarax"]
-      },
-      300: {
-        count: 1,
-        commenters: ["dev3535"]
-      }
+      expect(trackedEmotes).toEqual({
+        438: {
+          count: 2,
+          commenters: ["boebia", "TheAtarax"],
+          emote_offset: 1367
+        },
+        300: {
+          count: 1,
+          commenters: ["dev3535"],
+          emote_offset: 1200
+        }
+      });
     });
   });
 
@@ -162,7 +174,8 @@ describe("parseCommentChunk", () => {
     it("appends the displayName and iterates by one", () => {
       const emote = {
         count: 2,
-        commenters: ["boebia", "TheAtarax"]
+        commenters: ["boebia", "TheAtarax"],
+        emote_offset: 1200
       };
       const displayName = "dev3535";
 
@@ -170,7 +183,8 @@ describe("parseCommentChunk", () => {
 
       expect(emote).toEqual({
         count: 3,
-        commenters: ["boebia", "TheAtarax", "dev3535"]
+        commenters: ["boebia", "TheAtarax", "dev3535"],
+        emote_offset: 1200
       });
     });
   });
@@ -361,15 +375,18 @@ describe("parseCommentChunk", () => {
       tracked_emotes: {
         1889221: {
           count: 2,
-          commenters: ["OnlinePhenome", "Sammie_Leigh"]
+          commenters: ["OnlinePhenome", "Sammie_Leigh"],
+          emote_offset: 8447.188
         },
         438: {
           count: 1,
-          commenters: ["Sammie_Leigh"]
+          commenters: ["Sammie_Leigh"],
+          emote_offset: 8447.591
         },
         300004869: {
           count: 1,
-          commenters: ["Wodilio"]
+          commenters: ["Wodilio"],
+          emote_offset: 8449.633
         }
       }
     });
